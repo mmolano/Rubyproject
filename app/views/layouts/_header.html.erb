@@ -1,0 +1,16 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to image_tag("monlogo.png", alt: "Mon logo", style: "height: 50px"), root_path, class: "logo" %>
+  
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%= link_to "Accueil", root_path %> </li>
+        <li> <%= link_to "Services", services_path %> </li>
+        <li> <%= link_to "Team", team_path %> </li>
+        <li> <%= link_to "Contact", contact_path %> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+ <%# par convention mettre le _header.html.erb  %>
