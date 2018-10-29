@@ -2,7 +2,8 @@ require 'test_helper'
 
 class UtilisateurTest < ActiveSupport::TestCase
   def setup
-    @utilisateur = Utilisateur.new(nom: "Mike", email: "ok@gmail.com")
+    @utilisateur = Utilisateur.new(nom: "Mike", email: "ok@gmail.com", 
+                                  password: "salutjj", password_confirmation: "salutjj")
   end
 
   test "test user" do
@@ -54,6 +55,16 @@ class UtilisateurTest < ActiveSupport::TestCase
     assert_not utilisateur_duplicated.valid?
   end
 
+
+  test "test password user" do
+    @utilisateur.password = @utilisateur.password_confirmation = " " * 6
+    assert_not @utilisateur.valid?
+  end 
+
+  test "test password min lenght" do
+    @utilisateur.password = @utilisateur.password_confirmation = "a" * 5
+    assert_not @utilisateur.valid?
+  end 
 
 
 end
