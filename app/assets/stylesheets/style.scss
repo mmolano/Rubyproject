@@ -7,7 +7,7 @@ body{
 }
 
 .center{
-  text-align: center
+  text-align: center;
 }
 
 p{
@@ -16,14 +16,31 @@ p{
 }
 
 footer p{
-  text-align: center
+  text-align: center;
 }
 
 
 .logo{
   float: left;
   &:hover{
-    transform: scale(0.9, 0.9)
+    transform: scale(0.9, 0.9);
   }
 }
 
+/* Mixin */
+@mixin box-sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+
+/* Misc */
+
+.debug_dump{
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 45px;
+  @include box-sizing
+}
