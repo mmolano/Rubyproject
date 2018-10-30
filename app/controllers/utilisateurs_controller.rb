@@ -14,6 +14,8 @@ class UtilisateursController < ApplicationController
     @utilisateur = Utilisateur.new(utilisateur_params)
     if @utilisateur.save
       #sauvegarde confrimé <- true
+      flash[:success] = "Bienvenue sur le site"
+      redirect_to @utilisateur
     else 
       render "new" 
     end 
