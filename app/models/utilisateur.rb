@@ -9,4 +9,8 @@ class Utilisateur < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6}
 
 
+  utilisateur = Utilisateur.new(nom: "John", email: "John@gmail.com", password: "joshua201")
+
+  utilisateur.save 
+
 end

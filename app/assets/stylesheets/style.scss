@@ -7,7 +7,7 @@ body{
 }
 
 .center{
-  text-align: center
+  text-align: center;
 }
 
 p{
@@ -15,15 +15,74 @@ p{
   padding: 20px 0;
 }
 
-footer p{
-  text-align: center
-}
-
 
 .logo{
   float: left;
   &:hover{
-    transform: scale(0.9, 0.9)
+    transform: scale(0.9, 0.9);
   }
+}
+
+/* footer  */
+
+footer p{
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* Mixin */
+@mixin box-sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+
+/* Misc */        
+
+.debug_dump{
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 45px;
+  @include box-sizing;
+}
+
+/* Sidebar */
+
+aside{
+  section{
+    padding: 10px 0;
+    h1{
+      font-size: 140%;
+    }
+  }
+}
+
+.gravatar{
+  float: left;
+  margin-right: 10px;
+}
+
+/* Formulaire */
+
+input{
+  border: 1px solid rgb(182, 182, 182);
+  width: 100%;
+  margin-bottom: 15px;
+  @include box-sizing;
+}
+
+.register-title{
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+/* Listes */
+
+.list-form{
+  color: crimson;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
