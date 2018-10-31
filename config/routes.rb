@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
 
+  get 'sessions/new'
+
   get 'session/new'
 
   root 'statique#accueil'
