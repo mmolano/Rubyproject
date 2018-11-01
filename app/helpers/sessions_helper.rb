@@ -25,6 +25,10 @@ module SessionsHelper
    @current_utilisateur = nil
   end
 
+  def current_utilisateur?(utilisateur)
+    utilisateur == current_utilisateur
+  end
+
   def remember(utilisateur)
     utilisateur.remember
     cookies.permanent.signed[:utilisateur_id] = utilisateur.id
