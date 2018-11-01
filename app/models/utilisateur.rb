@@ -15,6 +15,12 @@ class Utilisateur < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+  def Utilisateur.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+      BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
   def remember
     self.remember_token = Utilisateur.new_token
     update_attribute(:remember_digest, Utilisateur.digest(remember_token))

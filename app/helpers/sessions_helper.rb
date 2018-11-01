@@ -17,19 +17,19 @@ module SessionsHelper
   
   def logged_in?
     !current_utilisateur.nil?
-  end  
-  
+  end
+
   def log_out
    forget(current_utilisateur)
    session.delete(:utilisateur_id)
    @current_utilisateur = nil
-  end  
+  end
 
   def remember(utilisateur)
     utilisateur.remember
-    cookies.permanent_signed[:utilisateur_id] = utilisateur_id
+    cookies.permanent.signed[:utilisateur_id] = utilisateur.id
     cookies.permanent[:remember_token] = utilisateur.remember_token
-  end  
+  end
 
   def forget(utilisateur)
     utilisateur.forget
