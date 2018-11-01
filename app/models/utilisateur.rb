@@ -9,10 +9,16 @@ class Utilisateur < ApplicationRecord
             format: {with: VALIDE_EMAIL_REGEX}, 
             uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   def Utilisateur.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  def Utilisateur.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+      BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
   end
 
   def remember
