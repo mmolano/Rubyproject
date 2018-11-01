@@ -15,19 +15,31 @@ class UtilisateursController < ApplicationController
     if @utilisateur.save
       #sauvegarde confrimé <- true
       log_in @utilisateur
-      flash[:success] = "Bienvenue sur le site"
+      flash[:success] = 'Bienvenue sur le site'
       redirect_to @utilisateur
-    else 
-      render "new" 
-    end 
+    else
+      render 'new'
+    end
   end
 
-  
+  def edit
+    @utilisateur = Utilisateur.find(params[:id])
+  end
+
+  def update
+    @utilisateur = Utilisateur.find(params[:id])
+    if @utilisateur.update_attributes(utilisateur_params)
+      flash[:success] = 'Profil mis à jour'
+      redirect_to @utilisateur
+    else
+      render 'edit'
+    end
+  end
+
   private
   
   def utilisateur_params
     params.require(:utilisateur).permit(:nom, :email, :password, :password_confirmation)
-  end  
-
+  end
 
 end
