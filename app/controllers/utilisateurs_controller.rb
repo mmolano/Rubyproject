@@ -17,7 +17,7 @@ class UtilisateursController < ApplicationController
   def create
     @utilisateur = Utilisateur.new(utilisateur_params)
     if @utilisateur.save
-    UtilisateurMailer.account_activation(@utilisateur).deliver_now
+    @utilisateur.send_activation_email
     flash[:info] = "Merci de consulter votre e-mail pour le lien d'activation de votre compte."
     redirect_to root_url
     else
