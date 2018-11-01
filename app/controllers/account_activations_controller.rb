@@ -1,4 +1,4 @@
-module AccountActivationHelper
+class AccountActivationsController < ApplicationController
   def edit
     utilisateur = Utilisateur.find_by(email: params[:email])
     if utilisateur && !utilisateur.activated? && utilisateur.authenticated?(:activation, params[:id])
