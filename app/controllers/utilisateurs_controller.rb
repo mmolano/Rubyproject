@@ -3,9 +3,11 @@ class UtilisateursController < ApplicationController
   before_action :correct_utilisateur, only: [:edit, :update]
   def show
     @utilisateur = Utilisateur.find(params[:id])
-
   end
 
+  def index
+    @utilisateurs = Utilisateur.all
+  end
 
   def new
     @utilisateur = Utilisateur.new
