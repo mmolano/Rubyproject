@@ -2,11 +2,23 @@ class MicropostsController < ApplicationController
   before_action :logged_in_utilisateur, only: [:create, :destroy]
 
   def create
-  
+    @micropost = current_utilisateur.microposts.build(micropost_params)
+    if @micropost.save 
+      flash[:success] = "Le tweet a été crée !"
+      redirect_to root_url
+    else
+      @feed_items = []
+      render 'static_pages/home'
+    end
   end
 
   def destroy
-    
+
   end
 
+  private
+
+  def micropost_params
+    params.require(:micropost).permit(:content)
+  end
 end

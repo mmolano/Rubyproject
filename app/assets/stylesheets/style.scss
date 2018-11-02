@@ -52,7 +52,7 @@ footer p{
 
 aside{
   section{
-    padding: 10px 0;
+    padding: 0;
     h1{
       font-size: 140%;
     }
@@ -153,7 +153,8 @@ input{
 aside {
   textarea {
     height: 100px;
-    margin-bottom: 5px;
+    width: 100%;
+    margin: 10px 0 5px 0;
   }
 }
 
