@@ -1,10 +1,28 @@
 <% provide(:title, "Accueil") %>
 
-<div class="center jumbotron">
-  <h1>Bienvenue !</h1>
-  <hr>
-  <p>AAaaaah Have a great time</p>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="utilisateur_info">
+        <%= render 'shared/utilisateur_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Flux de Tweets</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
 
-  <%= link_to "S'inscrire maintenant", signup_path , class: "btn btn-lg btn-primary" %>
+<% else %>
+    <div class="center jumbotron">
+        <h1>Bienvenue !</h1>
 
-</div>
+        <p>&darr; Pour vous inscrire, cliquez simplement sur le bouton ci-dessous &darr;</p>
+
+        <%= link_to "S'inscrire maintenant", signup_url, class: "btn btn-lg btn-primary" %>
+    </div>
+
+<% end %>

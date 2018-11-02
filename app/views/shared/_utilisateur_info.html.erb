@@ -1,0 +1,4 @@
+<%= link_to gravatar_for(current_utilisateur, size: 50), current_utilisateur %>
+<h1><%= current_utilisateur.nom %></h1>
+<span><%= link_to "Voir mon profile", current_utilisateur %></span>
+<span>| <%= pluralize(current_utilisateur.microposts.count, "tweet") %></span>
