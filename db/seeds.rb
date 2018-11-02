@@ -23,3 +23,11 @@ utilisateurs = Utilisateur.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   utilisateurs.each { |utilisateur| utilisateur.microposts.create!(content: content) }
 end
+
+
+utilisateurs = Utilisateur.all
+utilisateur = utilisateurs.first
+following = utilisateurs[2..50]
+followers = utilisateurs[3..40]
+following.each { |followed| utilisateur.follow(followed) }
+followers.each { |follower| follower.follow(utilisateur) }

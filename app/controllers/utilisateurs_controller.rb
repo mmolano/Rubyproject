@@ -42,8 +42,22 @@ class UtilisateursController < ApplicationController
 
   def destroy
     Utilisateur.find(params[:id]).destroy
-    flash[:success] = "Utilisateur supprime"
+    flash[:success] = 'Utilisateur supprime'
     redirect_to utilisateurs_url
+  end
+
+  def following
+    @title = 'Following'
+    @utilisateur = Utilisateur.find(params[:id])
+    @utilisateurs = @utilisateur.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Followers'
+    @utilisateur = Utilisateur.find(params[:id])
+    @utilisateurs = @utilisateur.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private
