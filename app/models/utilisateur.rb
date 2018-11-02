@@ -79,7 +79,7 @@ class Utilisateur < ApplicationRecord
   end
 
   def unfollow(autre_utilisateur)
-    follwing.delete(autre_utilisateur)
+    following.delete(autre_utilisateur)
   end
   
   def following?(autre_utilisateur)
