@@ -4,6 +4,7 @@ class UtilisateursController < ApplicationController
   before_action :admin_utilisateur, only: :destroy
   def show
     @utilisateur = Utilisateur.find(params[:id])
+    @microposts = @utilisateur.microposts.paginate(page: params[:page])
   end
 
   def index
@@ -39,7 +40,7 @@ class UtilisateursController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     Utilisateur.find(params[:id]).destroy
     flash[:success] = "Utilisateur supprime"
     redirect_to utilisateurs_url
@@ -49,13 +50,6 @@ class UtilisateursController < ApplicationController
   
   def utilisateur_params
     params.require(:utilisateur).permit(:nom, :email, :password, :password_confirmation)
-  end
-
-  def logged_in_utilisateur
-    unless logged_in?
-      flash[:danger] = 'Merci de vous connecter'
-      redirect_to login_url
-    end
   end
 
   def correct_utilisateur
