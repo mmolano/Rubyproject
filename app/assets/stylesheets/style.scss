@@ -48,6 +48,11 @@ footer p{
   @include box-sizing;
 }
 
+input.btn.btn-primary, input.btn{
+  margin-top: 10px;
+  background-color: lightblue;
+}
+
 /* Sidebar */
 
 aside{
@@ -62,6 +67,44 @@ aside{
 .gravatar{
   float: left;
   margin-right: 10px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 5px;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid rgb(209, 209, 209);
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.utilisateur_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.utilisateurs.follow {
+  padding: 0;
 }
 
 /* Formulaire */
