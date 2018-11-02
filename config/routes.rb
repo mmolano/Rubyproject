@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
 
-  get 'password_resets/edit'
+  root 'statique#accueil'
 
   get 'sessions/new'
 
   get 'session/new'
-
-  root 'statique#accueil'
 
   get '/contact', to: 'statique#contact'
 
@@ -23,7 +20,7 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
   
-  resources :utilisateurs 
+  resources :utilisateurs
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :update, :edit]
 end
