@@ -48,8 +48,9 @@ footer p{
   @include box-sizing;
 }
 
-input.btn.btn-primary{
+input.btn.btn-primary, input.btn{
   margin-top: 10px;
+  background-color: grey;
 }
 
 /* Sidebar */
